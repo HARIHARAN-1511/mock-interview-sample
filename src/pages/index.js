@@ -14,7 +14,7 @@ const HomePage = () => {
   }, [darkMode]);
 
   return (
-    <div className={`${darkMode ? "bg-gradient-to-br from-black to-gray-700 text-white" : "bg-gradient-to-br from-blue-100 to-white text-black"} min-h-screen w-full flex flex-col items-center justify-center p-6`}>      
+    <div className={`${darkMode ? "bg-gradient-to-br from-black to-gray-800 text-white" : "bg-gradient-to-br from-blue-200 to-gray-100 text-black"} min-h-screen w-full flex flex-col items-center justify-center p-6`}>      
       {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
