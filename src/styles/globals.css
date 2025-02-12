@@ -1,37 +1,210 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --input-background: #ffffff;
-  --input-text: #000000;
-  --border-color: #ccc;
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --input-background: #1a1a1a;
-  --input-text: #ffffff;
-  --border-color: #444;
+/* Full Page Styling */
+html, body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  color: #fff;
 }
 
-body {
-  @apply bg-background text-foreground;
-  font-family: Arial, Helvetica, sans-serif;
+/* -------- LOGIN PAGE STYLES -------- */
+.hero-section {
+  text-align: center;
+  padding: 3rem 2rem;
 }
 
-input, select, textarea {
-  @apply bg-[var(--input-background)] text-[var(--input-text)] border border-[var(--border-color)] p-2 rounded-md;
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-/* Make sure placeholder text is also visible */
-input::placeholder, textarea::placeholder {
-  @apply text-gray-400;
+.hero-section p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
 }
 
-input:focus, select:focus, textarea:focus {
-  @apply outline outline-2 outline-[var(--border-color)];
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.login-card {
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+}
+
+.login-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* FORM INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+/* BUTTON STYLES */
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-success {
+  background: #10b981;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #059669;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+/* -------- INTERVIEW PAGE STYLES -------- */
+.interview-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: white;
+}
+
+.interview-section {
+  display: flex;
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+/* Left Section */
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-up {
+  flex: 2;
+  background: #f3f4f6;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-down {
+  flex: 1;
+  background: #e5e7eb;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right Section (Chat) */
+.right-section {
+  flex: 1;
+  background: #f9fafb;
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat UI */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 80%;
+}
+
+.chat-message.ai {
+  background: #3b82f6;
+  color: white;
+  align-self: flex-start;
+}
+
+.chat-message.user {
+  background: #10b981;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
 }
