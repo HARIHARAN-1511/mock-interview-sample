@@ -10,25 +10,88 @@
 html, body {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #1e3a8a, #3b82f6);
-  color: #fff;
+  background: linear-gradient(to bottom, #a3d8f4, #ffffff);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* -------- LOGIN PAGE STYLES -------- */
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+}
+
+/* Login Page Styles */
 .hero-section {
   text-align: center;
   padding: 3rem 2rem;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .hero-section h1 {
   font-size: 2.5rem;
   font-weight: bold;
+  color: #1e3a8a;
+  animation: slideInLeft 1s ease-in-out;
 }
 
 .hero-section p {
   font-size: 1.2rem;
   margin-top: 0.5rem;
   opacity: 0.8;
+  color: #1e3a8a;
+  animation: slideInRight 1s ease-in-out;
 }
 
 .login-container {
@@ -39,6 +102,7 @@ html, body {
 }
 
 .login-card {
+  position: relative;
   background: #fff;
   color: #333;
   padding: 2rem;
@@ -46,74 +110,22 @@ html, body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 400px;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.login-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.login-card p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #555;
-}
-
-/* FORM INPUTS */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-input:focus {
-  border-color: #3b82f6;
-  outline: none;
-  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
-}
-
-/* BUTTON STYLES */
-.btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-
-.btn-primary {
-  background: #3b82f6;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #2563eb;
-}
-
-.btn-success {
-  background: #10b981;
-  color: white;
-}
-
-.btn-success:hover {
-  background: #059669;
-}
-
-.btn-danger {
-  background: #ef4444;
-  color: white;
-}
-
-.btn-danger:hover {
-  background: #dc2626;
-}
-
-/* -------- INTERVIEW PAGE STYLES -------- */
+/* Interview Page Styles */
 .interview-container {
   display: flex;
   flex-direction: column;
@@ -127,7 +139,6 @@ input:focus {
   padding: 2rem;
 }
 
-/* Left Section */
 .left-section {
   flex: 1;
   display: flex;
@@ -143,6 +154,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .left-down {
@@ -153,11 +165,11 @@ input:focus {
   border-radius: 8px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Right Section (Chat) */
 .right-section {
   flex: 1;
   background: #f9fafb;
@@ -194,6 +206,17 @@ input:focus {
   align-self: flex-end;
 }
 
+/* Form Elements */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
 .chat-input {
   width: 100%;
   padding: 10px;
@@ -203,8 +226,194 @@ input:focus {
   font-size: 1rem;
 }
 
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-success {
+  background: #10b981;
+  color: white;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+/* End Screen Styles */
+.end-screen-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+table {
+  border-collapse: collapse;
+  animation: slideInUp 0.8s ease-out;
+}
+
+td {
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+td:hover {
+  transform: translateY(-3px);
+}
+
 /* Footer */
 .footer {
   text-align: center;
   padding: 1rem;
+}
+/* Analysis Report Styles */
+.analysis-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.analysis-container:hover {
+  transform: translateY(-5px);
+}
+
+.metric-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.metric-row {
+  border-bottom: 2px solid #f0f4f8;
+}
+
+.metric-cell {
+  padding: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.metric-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.metric-title {
+  font-weight: 600;
+  color: #1e3a8a;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.value-cell {
+  padding: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3b82f6;
+  display: block;
+}
+
+/* Confidence Bar */
+.confidence-bar-container {
+  background: #f0f4f8;
+  border-radius: 50px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  height: 100%;
+  border-radius: 50px;
+  position: relative;
+  transition: width 1s ease-in-out;
+}
+
+.confidence-percent {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Button Styling */
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+  align-items: center;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.title-text {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle-text {
+  opacity: 0.9;
+  animation: fadeIn 1s ease-out;
 }
